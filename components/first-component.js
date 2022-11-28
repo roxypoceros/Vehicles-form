@@ -1,4 +1,6 @@
 import { LitElement, html, css } from "lit";
+import "./second-component"
+
 
 export class FirstComponent extends LitElement {
 
@@ -38,7 +40,18 @@ constructor() {
         --ghost: #ffffff8f;
       }
 
-      input[type="text"] {
+      input[type="number" ] {
+        width: 30%;
+        padding: 8px 16px;
+        margin: 8px;
+        border: none;
+        background-color: var(--ghost);
+        color: var(--almostBlack);
+        font-family: "Alexandria", sans-serif;
+        font-weight: 300;
+      }
+
+      input[type="text" ] {
         width: 30%;
         padding: 8px 16px;
         margin: 8px;
@@ -54,7 +67,7 @@ constructor() {
       }
 
       button {
-        background-color: #2a2a2a;
+        background-color: var(--almostBlack);
         border-radius: 25px;
         max-width: 200px;
         color: #fff;
@@ -72,19 +85,20 @@ constructor() {
 
       button:hover,
       button:focus {
-        opacity: 0.75;
+        opacity: 0.90;
       }
     `,
   ];
   
   render() {
     return html`
+    <div>
       <div class="inputBox">
         <label class="inputLabels" for="name">Nombre:</label>
-        <input type="text" id="carName" placeholder="Nombre de auto" />
+        <input type="text" id="carName" placeholder="Nombre de auto" required>
 
         <label class="inputLabels" for="name">Año:</label>
-        <input type="text" id="year" placeholder="Año de auto" />
+        <input type="number" id="year" placeholder="Año de auto" />
         <br />
 
         <label class="inputLabels" for="name">Marca:</label>
@@ -95,12 +109,21 @@ constructor() {
 
         <button @click=${this.addCar}>Agregar</button>
 
-<!--         ${this.carInfo.map( element =>
-          html `
-          
-          `)} -->
+        </div>
 
-      </div>
+        ${this.carInfo.map( element =>
+          html `
+          <second-component
+          carName=${element.carName}
+          year=${element.year}
+          brand=${element.brand}
+          version=${element.version}
+          ></second-component>
+          `)}
+
+          </div>
+
+
     `;
   }
 
