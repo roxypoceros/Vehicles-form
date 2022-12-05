@@ -95,7 +95,7 @@ constructor() {
     <div>
       <div class="inputBox">
         <label class="inputLabels" for="name">Nombre:</label>
-        <input type="text" id="carName" placeholder="Nombre de auto" required>
+        <input type="text" id="carName" placeholder="Nombre de auto" required />
 
         <label class="inputLabels" for="name">Año:</label>
         <input type="number" id="year" placeholder="Año de auto" />
